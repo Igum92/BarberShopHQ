@@ -53,8 +53,11 @@ end
 post '/contacts' do
  	@comment = params[:comment]
 
-	@title="Спасибо!"
-	@message="Спасибо! Нам важен Ваш комментарий"
+ 	c = Contacts.new
+ 	c.comment = @comment
+ 	c.save
+
+	erb "<h3> Спасибо! Нам важен Ваш комментарий </h3>"
 
 end
 
