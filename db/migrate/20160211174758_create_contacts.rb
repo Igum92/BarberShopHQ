@@ -1,4 +1,7 @@
 class CreateContacts < ActiveRecord::Migration
-  def change
-  end
+	def change
+  		create_table :contacts do |t|
+  			t.text :comment
+  		end
+  	end
 end
