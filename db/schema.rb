@@ -29,4 +29,11 @@ ActiveRecord::Schema.define(version: 20160210141149) do
     t.datetime "updated_at"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.text      "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+
+  end
+
 end

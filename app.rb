@@ -10,6 +10,7 @@ class Client < ActiveRecord::Base
 end
 
 class Contacts < ActiveRecord::Base
+end
 
 class Barber < ActiveRecord::Base
 end
@@ -43,5 +44,17 @@ post '/visit' do
 	c.save
 
 	erb "<h3> Спасибо! Вы записались! </h3>"
+end
+
+get '/contacts' do
+	erb :contacts
+end
+
+post '/contacts' do
+ 	@comment = params[:comment]
+
+	@title="Спасибо!"
+	@message="Спасибо! Нам важен Ваш комментарий"
 
 end
+
