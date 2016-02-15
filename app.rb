@@ -28,17 +28,18 @@ get '/' do
 end
 
 get '/visit' do
+	@c = Client.new
 	erb :visit
 end
 
 post '/visit' do
 
-	c = Client.new params[:client]
+	@c = Client.new params[:client]
 
-	if c.save
+	if @c.save
 		erb "<h3> Спасибо! Вы записались! </h3>"
 	else
-		@error = c.errors.full_messages.first
+		@error = @c.errors.full_messages.first
 		erb :visit
 	end
 end
@@ -50,13 +51,13 @@ end
 post '/contacts' do
  	@comment = params[:comment]
 
- 	c = Contacts.new
- 	c.comment = @comment
+ 	@c = Contacts.new
+ 	@c.comment = @comment
  	
- 	if c.save
+ 	if @c.save
 		erb "<h3> Спасибо! Вы записались! </h3>"
 	else
-		@error = c.errors.full_messages.first
+		@error = @c.errors.full_messages.first
 		erb :visit
 	end
 
