@@ -39,6 +39,7 @@ post '/visit' do
 		erb "<h3> Спасибо! Вы записались! </h3>"
 	else
 		erb "<h3>Ошибка!</h3>"
+	end
 end
 
 get '/contacts' do
@@ -50,7 +51,12 @@ post '/contacts' do
 
  	c = Contacts.new
  	c.comment = @comment
- 	c.save
+ 	
+ 	if c.save
+		erb "<h3> Спасибо! Вы записались! </h3>"
+	else
+		erb "<h3>Ошибка!</h3>"
+	end
 
 	erb "<h3> Спасибо! Нам важен Ваш комментарий </h3>"
 
