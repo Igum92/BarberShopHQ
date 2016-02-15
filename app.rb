@@ -38,7 +38,8 @@ post '/visit' do
 	if c.save
 		erb "<h3> Спасибо! Вы записались! </h3>"
 	else
-		erb "<h3>Ошибка!</h3>"
+		@error = c.errors.full_messages.first
+		erb :visit
 	end
 end
 
@@ -55,7 +56,8 @@ post '/contacts' do
  	if c.save
 		erb "<h3> Спасибо! Вы записались! </h3>"
 	else
-		erb "<h3>Ошибка!</h3>"
+		@error = c.errors.full_messages.first
+		erb :visit
 	end
 
 	erb "<h3> Спасибо! Нам важен Ваш комментарий </h3>"
